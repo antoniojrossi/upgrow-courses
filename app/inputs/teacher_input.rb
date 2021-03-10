@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TeacherInput
   include ActiveModel::Model
 

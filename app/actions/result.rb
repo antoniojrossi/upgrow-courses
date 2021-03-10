@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Struct that represent the result of running an action.
+# All actions retuns a single result struct.
 class Result < Struct
   class << self
     def with_members(*members)
@@ -15,7 +19,7 @@ class Result < Struct
 
   def initialize(*args)
     super(*args)
-    self.errors ||= [] 
+    self.errors ||= []
   end
 
   def and_then

@@ -1,0 +1,17 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "xprotocol"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "Upgrow Courses",
+      "database": "upgrow_courses_development",
+      "username": "root",
+      "password": ""
+    }
+  ]
+}

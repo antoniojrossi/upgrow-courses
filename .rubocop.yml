@@ -1,0 +1,9 @@
+require:
+    - rubocop-rails
+    - rubocop-rspec
+
+AllCops:
+    NewCops: enable
+
+Metrics/BlockLength:
+    IgnoredMethods: ['describe', 'context']

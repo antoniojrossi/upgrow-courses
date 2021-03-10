@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Abstract class that represents an action in the architecture. All actions
+# extend this class.
 class Action
   class << self
     def result_class

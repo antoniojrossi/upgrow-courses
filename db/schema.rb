@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_181114) do
+ActiveRecord::Schema.define(version: 2021_03_09_183625) do
+
+  create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.bigint "teacher_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
+  end
 
   create_table "teachers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -18,4 +26,5 @@ ActiveRecord::Schema.define(version: 2021_03_08_181114) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "courses", "teachers"
 end

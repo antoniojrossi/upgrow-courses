@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Centralize all teacher record actions
 class TeacherRepository
   def all
     TeacherRecord.all.map { |record| to_model(record.attributes) }
@@ -25,7 +28,7 @@ class TeacherRepository
   end
 
   private
-  
+
   def to_model(attributes)
     Teacher.new(**attributes.symbolize_keys)
   end
