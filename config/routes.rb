@@ -2,6 +2,6 @@
 
 Rails.application.routes.draw do
   resources :teachers do
-    resources :courses
+    resources :courses, only: %i[create destroy]
   end
 end

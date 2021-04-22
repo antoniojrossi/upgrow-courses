@@ -9,6 +9,11 @@ class CourseRepository
     raise Errors::CourseInvalid.new(e.message, e.record.errors)
   end
 
+  def delete(id)
+    record = CourseRecord.find(id)
+    record.destroy!
+  end
+
   private
 
   def to_model(attributes)

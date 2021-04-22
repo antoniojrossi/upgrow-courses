@@ -16,6 +16,16 @@ class TeacherRepository
     to_model(record.attributes)
   end
 
+  def find_with_courses(id)
+    record = TeacherRecord.find(id)
+
+    courses = record.course_records.map do |course_record|
+      to_course_model(course_record.attributes)
+    end
+
+    to_model(record.attributes.merge(courses: courses))
+  end
+
   def update(id, input)
     record = TeacherRecord.find(id)
     record.update!(name: input.name)
@@ -31,5 +41,9 @@ class TeacherRepository
 
   def to_model(attributes)
     Teacher.new(**attributes.symbolize_keys)
+  end
+
+  def to_course_model(attributes)
+    Course.new(**attributes.symbolize_keys)
   end
 end

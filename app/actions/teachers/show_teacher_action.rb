@@ -6,7 +6,7 @@ module Teachers
     result :teacher
 
     def perform(id)
-      result.success(teacher: TeacherRepository.new.find(id))
+      result.success(teacher: TeacherRepository.new.find_with_courses(id))
     end
   end
 end

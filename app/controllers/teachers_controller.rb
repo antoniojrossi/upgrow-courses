@@ -10,7 +10,7 @@ class TeachersController < ApplicationController
 
   # GET /teachers/1
   def show
-    teacher = Teachres::ShowTeacherAction.new.perform(params[:id]).teacher
+    teacher = Teachers::ShowTeacherAction.new.perform(params[:id]).teacher
     render json: teacher
   end
 
