@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: Ver otro sitio para dejar estos errores
 module Errors
   # Base exception class
   class BaseException < StandardError
@@ -12,4 +13,6 @@ module Errors
   end
 
   class CourseInvalid < BaseException; end
+
+  class ProposedCourseInvalid < BaseException; end
 end

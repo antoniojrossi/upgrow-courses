@@ -39,6 +39,7 @@ class TeacherRepository
 
   private
 
+  # TODO: Ver como podriamos mejorar esta conversion, no me gusta en metodos privados
   def to_model(attributes)
     Teacher.new(**attributes.symbolize_keys)
   end
