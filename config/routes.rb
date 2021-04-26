@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :teachers do
-    resources :courses, only: %i[create destroy]
+  concern :votable do
+    resources :votes, only: [:create]
   end
-  resources :proposed_courses, only: %i[index create]
+
+  resources :teachers, concerns: :votable
+  resources :courses, concerns: :votable, only: %i[index create delete]
+  resources :proposed_courses, only: %i[index create], concerns: :votable
 end

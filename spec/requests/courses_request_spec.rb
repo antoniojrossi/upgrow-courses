@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Courses API', type: :request do
-  describe 'POST /teachers/:teacher_id/courses' do
+  describe 'POST /courses' do
     let(:teacher) { create(:teacher) }
-    let(:attributes) { { title: 'How to paint like Bob Ross' } }
+    let(:attributes) { { title: 'How to paint like Bob Ross', teacher_id: teacher.id } }
 
-    before { post "/teachers/#{teacher.id}/courses", params: attributes }
+    before { post '/courses', params: attributes }
 
     context 'with valid attributes' do
       it 'returns status code 201 (created)' do
@@ -22,7 +22,7 @@ RSpec.describe 'Courses API', type: :request do
     context 'with title already in use' do
       let(:teacher) { create(:teacher) }
       let(:course) { create(:course) }
-      let(:attributes) { { title: course.title } }
+      let(:attributes) { { title: course.title, teacher_id: teacher.id } }
 
       it 'returns status code 422 (unprocessable entity)' do
         expect(response).to have_http_status(:unprocessable_entity)

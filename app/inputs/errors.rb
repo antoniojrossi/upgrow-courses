@@ -15,4 +15,6 @@ module Errors
   class CourseInvalid < BaseException; end
 
   class ProposedCourseInvalid < BaseException; end
+
+  class VoteInvalid < BaseException; end
 end

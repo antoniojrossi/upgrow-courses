@@ -2,7 +2,13 @@
 
 # Controller for course actions
 class CoursesController < ApplicationController
-  # POST /teachers/1/course
+  # GET /courses
+  def index
+    courses = Courses::ListCoursesAction.new.perform.courses
+    render json: courses
+  end
+
+  # POST /course
   def create
     input = CourseInput.new(course_params)
     input.teacher_id = params[:teacher_id]
@@ -11,7 +17,7 @@ class CoursesController < ApplicationController
                                .or_else { |errors| render json: errors.to_json, status: :unprocessable_entity }
   end
 
-  # DELETE /teachers/1/course/1
+  # DELETE /course/1
   def destroy
     Courses::DeleteCourseAction.new.perform(params[:id])
     head :no_content

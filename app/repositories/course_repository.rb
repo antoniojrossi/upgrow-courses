@@ -14,6 +14,10 @@ class CourseRepository
     record.destroy!
   end
 
+  def all
+    CourseRecord.all.map { |record| to_model(record.attributes) }
+  end
+
   private
 
   def to_model(attributes)
