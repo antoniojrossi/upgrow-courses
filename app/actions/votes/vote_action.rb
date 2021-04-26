@@ -7,7 +7,6 @@ module Votes
 
     def perform(input)
       if input.valid?
-        # TODO: Try to use a "domain service" to do the voting
         vote = VoteRepository.new.create(input)
         result.success(vote: vote)
       else
